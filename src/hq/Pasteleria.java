@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package productores;
+package hq;
 
-/**
- *
- * @author Castealo
- */
-public class Pasteleros {
+import java.util.Queue;
+
+
+
+public class Pasteleria {
+    private Queue q;
     
 }

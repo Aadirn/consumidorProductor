@@ -9,6 +9,31 @@ package productores;
  *
  * @author Castealo
  */
-public class Pasteleros {
-    
+public class Pasteleros extends Thread {
+
+    private int tiempoPreparacion;
+    private final String idPastelero;
+    private int produccion;
+
+    public Pasteleros(String idPastelero) {
+        this.idPastelero = idPastelero;
+    }
+
+    @Override
+    public void run() {
+        super.run(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public int getTiempoPreparacion() {
+        return tiempoPreparacion;
+    }
+
+    public String getIdPastelero() {
+        return idPastelero;
+    }
+
+    public int getProduccion() {
+        return produccion;
+    }
+
 }

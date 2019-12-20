@@ -11,4 +11,22 @@ package modelo;
  */
 public class Tarta {
     
+    private int peso;
+    private String idTarta;
+
+    public Tarta(int peso, String id) {
+        this.peso = peso;
+        this.idTarta = id;
+    }
+
+    public int getPeso() {
+        return peso;
+    }
+
+    public String getIdTarta() {
+        return idTarta;
+    }
+    
+    
+    
 }

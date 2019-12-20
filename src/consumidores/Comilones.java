@@ -9,6 +9,31 @@ package consumidores;
  *
  * @author Castealo
  */
-public class Comilones {
-    
+public class Comilones extends Thread {
+
+    private final String idComilon;
+    private int tiempoConsumicion;
+    private int consumidas;
+
+    public Comilones(String idComilon) {
+        this.idComilon = idComilon;
+    }
+
+    @Override
+    public void run() {
+        super.run(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getIdComilon() {
+        return idComilon;
+    }
+
+    public int getTiempoConsumicion() {
+        return tiempoConsumicion;
+    }
+
+    public int getConsumidas() {
+        return consumidas;
+    }
+
 }

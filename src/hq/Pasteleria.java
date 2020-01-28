@@ -1,8 +1,6 @@
-
 package hq;
 
 import consumidores.Comilones;
-import java.util.AbstractQueue;
 import java.util.ArrayList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -27,7 +25,7 @@ public class Pasteleria {
         this.pasteleros = new ArrayList<>();
 
         for (int i = 0; i < PASTELEROS; i++) {
-            p = new Pasteleros("Pastelero" + i,PASTELES_A_GENERAR, new CommsPasteleros() {
+            p = new Pasteleros("Pastelero" + i, PASTELES_A_GENERAR, new CommsPasteleros() {
                 @Override
                 public void pastelACinta(Pasteles pastel) {
                     cinta.add(pastel);
@@ -40,6 +38,7 @@ public class Pasteleria {
                 @Override
                 public Pasteles quitaDeCinta() {
                     return (Pasteles) cinta.poll();
+
                 }
             });
             comilones.add(c);
@@ -60,8 +59,13 @@ public class Pasteleria {
     }
 
     private void iniciaComilones() {
-        //Comilones comen tartas
-        //Inicio 1 comilon
+//        try {
+//            //Comilones comen tartas
+//            //Inicio 1 comilon
+//            Thread.sleep(30000);
+//        } catch (InterruptedException ex) {
+//            Logger.getLogger(Pasteleria.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         comilones.get(0).start();
 
     }

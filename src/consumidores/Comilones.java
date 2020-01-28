@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package consumidores;
 
 import java.util.logging.Level;
@@ -10,10 +5,6 @@ import java.util.logging.Logger;
 import modelo.CommsComilones;
 import modelo.Pasteles;
 
-/**
- *
- * @author Castealo
- */
 public class Comilones extends Thread {
 
     private final String idComilon;
@@ -29,18 +20,7 @@ public class Comilones extends Thread {
 
     @Override
     public void run() {
-        pastel = listener.quitaDeCinta();
-        if(pastel!=null){
-        tiempoConsumicion = pastel.getPeso();
-        try {
-            Thread.sleep(tiempoConsumicion);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Comilones.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            System.out.println("Me he comido esta tarta en "+tiempoConsumicion+"ms y soy "+idComilon);
-        }else{
-            System.out.println("Lista vacia");
-        }
+        aComer();
     }
 
     public String getIdComilon() {
@@ -53,6 +33,31 @@ public class Comilones extends Thread {
 
     public int getConsumidas() {
         return consumidas;
+    }
+
+    private synchronized void aComer() {
+        consumidas = 0;
+        do {
+//            try {
+//                Thread.sleep(10000);
+//            } catch (InterruptedException ex) {
+//                Logger.getLogger(Comilones.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+            System.out.println(pastel);
+            pastel = listener.quitaDeCinta();
+            if (pastel != null) {
+                tiempoConsumicion = pastel.getPeso();
+                try {
+                    Thread.sleep(tiempoConsumicion);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Comilones.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                System.out.println("Me he comido esta tarta en " + tiempoConsumicion + "ms y soy " + idComilon + "\n");
+                consumidas++;
+            } else {
+                //System.out.println("Lista vacia");
+            }
+        } while (consumidas != 20);
     }
 
 }

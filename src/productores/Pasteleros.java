@@ -34,22 +34,7 @@ public class Pasteleros extends Thread {
 
     @Override
     public void run() {
-        int id = 0;
-        do {
-            rnd = new Random(System.currentTimeMillis());
-            tiempoPreparacion = rnd.nextInt(1000 - 500 + 1) + 500;
-            pesoPastel = tiempoPreparacion;
-            Pasteles pastel = new Pasteles(pesoPastel, "Pastel " + id);
-            id++;
-            listener.pastelACinta(pastel);
-            System.out.println("Soy el pastelero "+idPastelero+" y he preparado una tarta de "+pesoPastel+"g");
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Pasteleros.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        } while (id != totalPasteles);
+        aCocinar();
 
     }
 
@@ -63,6 +48,26 @@ public class Pasteleros extends Thread {
 
     public int getProduccion() {
         return produccion;
+    }
+
+    private synchronized void aCocinar() {
+
+        int id = 0;
+        do {
+            rnd = new Random(System.currentTimeMillis());
+            tiempoPreparacion = rnd.nextInt(1000 - 500 + 1) + 500;
+            pesoPastel = tiempoPreparacion;
+            Pasteles pastel = new Pasteles(pesoPastel, "Pastel " + id);
+            id++;
+            listener.pastelACinta(pastel);
+            System.out.println("Soy el pastelero " + idPastelero + " y he preparado una tarta de " + pesoPastel + "g" + "\n");
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Pasteleros.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } while (id != totalPasteles);
     }
 
 }

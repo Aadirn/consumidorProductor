@@ -43,7 +43,7 @@ public class Comilones extends Thread {
 //            } catch (InterruptedException ex) {
 //                Logger.getLogger(Comilones.class.getName()).log(Level.SEVERE, null, ex);
 //            }
-            System.out.println(pastel);
+            //System.out.println(pastel);
             pastel = listener.quitaDeCinta();
             if (pastel != null) {
                 tiempoConsumicion = pastel.getPeso();

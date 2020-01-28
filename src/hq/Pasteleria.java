@@ -49,6 +49,7 @@ public class Pasteleria {
     public void abrirPasteleria() {
         iniciaPasteleros();
         iniciaComilones();
+        
     }
 
     private void iniciaPasteleros() {

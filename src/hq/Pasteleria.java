@@ -49,26 +49,24 @@ public class Pasteleria {
     public void abrirPasteleria() {
         iniciaPasteleros();
         iniciaComilones();
-        
+
     }
 
     private void iniciaPasteleros() {
         //Pasteleros hacen tartas
         //Inicio 1 pastelero
-        pasteleros.get(0).start();
+        for (int i = 0; i < PASTELEROS; i++) {
+            pasteleros.get(i).start();
+        }
 
     }
 
     private void iniciaComilones() {
-//        try {
-//            //Comilones comen tartas
-//            //Inicio 1 comilon
-//            Thread.sleep(30000);
-//        } catch (InterruptedException ex) {
-//            Logger.getLogger(Pasteleria.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        comilones.get(0).start();
-
+        //Comilones comen tartas
+        //Inicio 1 comilon
+        for (int i = 0; i < COMILONES; i++) {
+            comilones.get(i).start();
+        }
     }
 
 }

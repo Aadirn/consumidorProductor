@@ -5,7 +5,6 @@
  */
 package productores;
 
-import java.util.Queue;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -54,7 +53,7 @@ public class Pasteleros extends Thread {
 
         int id = 0;
         do {
-            rnd = new Random(System.currentTimeMillis());
+            rnd = new Random();
             tiempoPreparacion = rnd.nextInt(1000 - 500 + 1) + 500;
             pesoPastel = tiempoPreparacion;
             Pasteles pastel = new Pasteles(pesoPastel, "Pastel " + id);

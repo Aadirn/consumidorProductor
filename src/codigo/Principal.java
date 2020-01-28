@@ -22,6 +22,7 @@ public class Principal {
     public static void main(String[] args) {
         Pasteleria p = new Pasteleria();
         p.abrirPasteleria();
+        //System.out.println("hola");
     }
     
 }

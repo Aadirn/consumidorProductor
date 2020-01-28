@@ -58,6 +58,8 @@ public class Comilones extends Thread {
                 //System.out.println("Lista vacia");
             }
         } while (consumidas != 20);
+        
+        
     }
 
 }

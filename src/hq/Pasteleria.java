@@ -49,6 +49,7 @@ public class Pasteleria {
     public void abrirPasteleria() {
         iniciaPasteleros();
         iniciaComilones();
+       
 
     }
 
@@ -58,6 +59,7 @@ public class Pasteleria {
         for (int i = 0; i < PASTELEROS; i++) {
             pasteleros.get(i).start();
         }
+    
 
     }
 
@@ -67,6 +69,7 @@ public class Pasteleria {
         for (int i = 0; i < COMILONES; i++) {
             comilones.get(i).start();
         }
+        //System.out.println("Hola");
     }
 
 }
